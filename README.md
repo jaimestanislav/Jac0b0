@@ -8,7 +8,32 @@ This project implements a complete workflow for scraping and parsing sports bett
 
 ## Architecture
 
-The project follows a modular architecture with the following components:
+```
+┌─────────────────────────────────────────────────────────────┐
+│                         index.js                             │
+│                    (Entry Point / Exports)                   │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────┐
+│                       scraper.js                             │
+│                   (Main Orchestrator)                        │
+└─────────────────────────────────────────────────────────────┘
+           │                  │                  │
+           ▼                  ▼                  ▼
+    ┌──────────┐      ┌──────────────┐    ┌──────────┐
+    │browser.js│      │deepseek-ocr.js│    │parser.js │
+    │(Puppeteer│      │  (OCR API)   │    │ (Core)   │
+    │  Manager)│      │              │    │ Spatial  │
+    └──────────┘      └──────────────┘    │ Parsing  │
+                                           └──────────┘
+                              │
+                              ▼
+                       ┌──────────┐
+                       │config.js │
+                       │(Settings)│
+                       └──────────┘
+```
 
 ### Core Modules
 
