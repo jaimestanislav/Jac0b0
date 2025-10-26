@@ -1,0 +1,26 @@
+{
+  "name": "jac0b0",
+  "version": "1.0.0",
+  "description": "Modular Node.js project for scraping sports betting odds using DeepSeek OCR",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "scraper",
+    "sports-betting",
+    "ocr",
+    "deepseek",
+    "odds",
+    "autobetting"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^22.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
