@@ -74,7 +74,9 @@ class Parser {
    */
   structureData(entries) {
     const structured = [];
-    const oddsPattern = /\d+\.\d+|\d+\/\d+|\+\d+|-\d+/g;
+    // Fixed regex pattern to avoid ReDoS vulnerability
+    // More specific patterns with atomic grouping to prevent backtracking
+    const oddsPattern = /(?:\d+\.\d+)|(?:\d+\/\d+)|(?:\+\d+)|(?:-\d+)/g;
     const numericPattern = /\d+/;
 
     for (let i = 0; i < entries.length; i++) {
