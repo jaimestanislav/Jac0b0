@@ -104,7 +104,7 @@ try {
 console.log('Test 9: Scraper class can be instantiated');
 if (Scraper) {
   try {
-    const testApiKey = 'test-api-key-123';
+    const testApiKey = 'test_fake_api_key_for_testing_only';
     const scraper = new Scraper(testApiKey);
     assert(scraper, 'Scraper should be instantiated');
     assert(scraper.apiKey === testApiKey, 'API key should be stored');
