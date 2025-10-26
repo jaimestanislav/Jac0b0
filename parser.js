@@ -75,9 +75,10 @@ class Parser {
   structureData(entries) {
     const structured = [];
     // Fixed regex pattern to avoid ReDoS vulnerability
-    // More specific patterns with atomic grouping to prevent backtracking
-    const oddsPattern = /(?:\d+\.\d+)|(?:\d+\/\d+)|(?:\+\d+)|(?:-\d+)/g;
-    const numericPattern = /\d+/;
+    // Limit digit repetitions to prevent backtracking attacks
+    // Matches: decimal odds (1.50-999.99), fractional (1/2-99/99), American (+100 to +9999, -100 to -9999)
+    const oddsPattern = /(?:\d{1,3}\.\d{1,2})|(?:\d{1,2}\/\d{1,2})|(?:\+\d{1,4})|(?:-\d{1,4})/g;
+    const numericPattern = /\d/;
 
     for (let i = 0; i < entries.length; i++) {
       const entry = entries[i];
